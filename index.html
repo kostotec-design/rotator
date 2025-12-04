@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Rotator</title>
+  <script>
+    // Ссылки для ротации по очереди
+    var links = [
+      "https://max.ru/u/f9LHodD0cOL8QF4AnC8GlVloJ4g_GXiB2lttvAlzEk5AOvKTVjFzPzLeoo8",
+      "https://max.ru/u/f9LHodD0cOJxAgdImEtr4_IyAYlrvNGSfKQor1nEMNuAzH_ghKz1w21y474",
+      "https://max.ru/u/f9LHodD0cOK8WyRVSCxb85QOLIyWB7cAL3IzcQU_dIT7vkr3AVN4sKbiGKA"
+    ];
+
+    // Индекс для конкретного клиента — хранится в браузере
+    var index = parseInt(localStorage.getItem('rotator_index'), 10);
+    if (isNaN(index)) index = 0;
+
+    // Редирект
+    window.location.href = links[index];
+
+    // Следующее значение по кругу
+    index = (index + 1) % links.length;
+    localStorage.setItem('rotator_index', index);
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
